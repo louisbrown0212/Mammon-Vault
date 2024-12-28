@@ -14,10 +14,10 @@
 
 pragma solidity ^0.8.0;
 
-import "../../../solidity-utils/contracts/openzeppelin/IERC20.sol";
-
-interface IControlledPool {
-    function setSwapFeePercentage(uint256 swapFeePercentage) external;
-
-    function setAssetManagerPoolConfig(IERC20 token, bytes memory poolConfig) external;
+library ArrayHelpers {
+    function arrayFill(uint256 a, uint256 b) internal pure returns (uint256[] memory result) {
+        result = new uint256[](2);
+        result[0] = a;
+        result[1] = b;
+    }
 }
