@@ -12,24 +12,16 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-pragma solidity ^0.8.0;
+pragma solidity 0.8.11;
 
-import "./IControlledPool.sol";
-
-interface IControlledManagedPool is IControlledPool {
+interface IBManagedPoolController {
     function updateWeightsGradually(
         uint256 startTime,
         uint256 endTime,
-        uint256[] calldata endWeights
+        uint256[] memory endWeights
     ) external;
 
     function setSwapEnabled(bool swapEnabled) external;
 
-    function addAllowedAddress(address member) external;
-
-    function removeAllowedAddress(address member) external;
-
-    function setMustAllowlistLPs(bool mustAllowlistLPs) external;
-
-    function withdrawCollectedManagementFees(address recipient) external;
+    function setSwapFeePercentage(uint256 swapFeePercentage) external;
 }
